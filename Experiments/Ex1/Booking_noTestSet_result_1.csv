@@ -1,0 +1,18 @@
+# ACTS Test Suite Generation: Tue May 17 13:08:49 CST 2022
+#  '*' represents don't care value 
+# Degree of interaction coverage: 1
+# Number of parameters: 7
+# Maximum number of values per parameter: 11
+# Number of configurations: 11
+bookingType,date1,origin1,destination1,date2,origin2,destination2
+one_way,2,Shanghai,Nanjing,0,null,null
+multi_trip,1,Nanjing,Beijing,1,Beijing,Shanghai
+multi_trip,1,Dalian,Shanghai,2,Shanghai,Nanjing
+multi_trip,3,Tokyo,Nanjing,3,Nanjing,Dalian
+multi_trip,4,Singapore,Dalian,4,Dalian,Tokyo
+multi_trip,5,London,Tokyo,5,Tokyo,Singapore
+multi_trip,6,Paris,Singapore,6,Singapore,London
+multi_trip,7,Beijing,London,7,London,Paris
+round_trip,8,Beijing,Paris,8,Paris,Beijing
+round_trip,9,Nanjing,Singapore,9,Singapore,Nanjing
+multi_trip,10,Tokyo,Beijing,10,Beijing,Nanjing

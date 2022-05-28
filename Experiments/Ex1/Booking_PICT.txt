@@ -1,0 +1,14 @@
+bookingType:one_way,round_trip,multi_trip
+date1:1,2,3,4,5,6,7,8,9,10
+origin1:Beijing,Shanghai,Nanjing,Dalian,Tokyo,Singapore,London,Paris
+destination1:Beijing,Shanghai,Nanjing,Dalian,Tokyo,Singapore,London,Paris
+date2:0,1,2,3,4,5,6,7,8,9,10
+origin2:Beijing,Shanghai,Nanjing,Dalian,Tokyo,Singapore,London,Paris,null
+destination2:Beijing,Shanghai,Nanjing,Dalian,Tokyo,Singapore,London,Paris,null
+
+IF [bookingType]="one_way" 
+	THEN [origin2]="null" AND  [date2]=0 AND [destination2]="null";
+IF [bookingType]="round_trip" 
+	THEN [origin2]<>[destination2] AND [origin2]<>"null" AND  [date2]<>0 AND [destination2]<>"null" AND [date1]<=[date2] AND [origin1]=[destination2] AND  [origin2]=[destination1];
+IF [bookingType]="multi_trip" 
+	THEN [origin2]<>[destination2] AND [origin2]<>"null" AND  [date2]<>0 AND [destination2]<>"null" AND [date1]<=[date2] AND [origin2]=[destination1];

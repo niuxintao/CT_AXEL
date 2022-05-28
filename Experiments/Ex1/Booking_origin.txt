@@ -1,0 +1,28 @@
+[System]
+Name: catalogue.airline.Booking
+[Parameter]
+bookingType(enum):one_way,round_trip,multi_trip
+date1(int):1,2,3,4,5,6,7,8,9,10
+origin1(enum):Beijing,Shanghai,Nanjing,Dalian,Tokyo,Singapore,London,Paris
+destination1(enum):Beijing,Shanghai,Nanjing,Dalian,Tokyo,Singapore,London,Paris
+date2(int):0,1,2,3,4,5,6,7,8,9,10
+origin2(enum):Beijing,Shanghai,Nanjing,Dalian,Tokyo,Singapore,London,Paris,null
+destination2(enum):Beijing,Shanghai,Nanjing,Dalian,Tokyo,Singapore,London,Paris,null
+[Constraint]
+origin1!=destination1
+bookingType="one_way" => date2=0
+bookingType="one_way" => origin2="null" 
+bookingType="one_way" => destination2="null"
+bookingType="round_trip" =>origin2!=destination2 
+bookingType="round_trip" =>origin2!="null"
+bookingType="round_trip" =>destination2!="null"
+bookingType="round_trip" =>date2!=0
+bookingType="round_trip" =>date1<=date2
+bookingType="round_trip" =>origin1=destination2
+bookingType="round_trip" =>origin2=destination1
+bookingType="multi_trip" =>origin2!=destination2 
+bookingType="multi_trip" =>origin2!="null"
+bookingType="multi_trip" =>destination2!="null"
+bookingType="multi_trip" =>date2!=0
+bookingType="multi_trip" =>date1<=date2
+bookingType="multi_trip" =>origin2=destination1
